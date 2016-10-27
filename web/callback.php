@@ -18,34 +18,34 @@ if($type != "text"){
 }
 
 //返信データ作成
-if ($text == 'はい') {
+if ($text == 'コボ！') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "こちらの〇〇はいかがですか？",
+    "altText" => "僕はお助けコボットです！何でも言って！",
     "template" => [
       "type" => "buttons",
       "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
-      "title" => "○○レストラン",
-      "text" => "お探しのレストランはこれですね",
+      "title" => "Kobotsメニュー",
+      "text" => "やって欲しいことを選んで下さい",
       "actions" => [
           [
             "type" => "postback",
-            "label" => "予約する",
+            "label" => "包丁でお料理！",
             "data" => "action=buy&itemid=123"
           ],
           [
             "type" => "postback",
-            "label" => "電話する",
+            "label" => "コロコロでお掃除！",
             "data" => "action=pcall&itemid=123"
           ],
           [
             "type" => "uri",
-            "label" => "詳しく見る",
+            "label" => "ダンス！",
             "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
           ],
           [
             "type" => "message",
-            "label" => "違うやつ",
+            "label" => "他にもあるよ",
             "text" => "違うやつお願い"
           ]
       ]
@@ -56,7 +56,7 @@ if ($text == 'はい') {
 } else if ($text == '違うやつお願い') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "候補を３つご案内しています。",
+    "altText" => "他にこんなこともできるよ。",
     "template" => [
       "type" => "carousel",
       "columns" => [
@@ -132,7 +132,7 @@ if ($text == 'はい') {
 } else {
   $response_format_text = [
     "type" => "template",
-    "altText" => "こんにちわ 何かご用ですか？（はい／いいえ）",
+    "altText" => "僕コボット！何かご用ですか？（はい／いいえ）",
     "template" => [
         "type" => "confirm",
         "text" => "こんにちわ 何かご用ですか？",
