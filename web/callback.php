@@ -135,7 +135,7 @@ if ($text == 'コボ！') {
     "altText" => "僕コボット！何かご用ですか？（はい／いいえ）",
     "template" => [
         "type" => "confirm",
-        "text" => "こんにちわ 何かご用ですか？",
+        "text" => "コボんちは、何かご用ですか？",
         "actions" => [
             [
               "type" => "message",
