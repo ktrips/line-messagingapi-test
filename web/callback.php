@@ -21,16 +21,16 @@ if ($text == 'はい') {
       "type" => "buttons",
       "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
       "title" => "あなた様の夢を教えて下さい",
-      "text" => "いつか一戸建ての家が建てたい",
+      "text" => "いつかこんな一戸建ての家を建てたい",
       "actions" => [
           [
             "type" => "postback",
-            "label" => "予約する",
+            "label" => "家を建てる為の資金プランを作る",
             "data" => "action=buy&itemid=123"
           ],
           [
             "type" => "postback",
-            "label" => "電話する",
+            "label" => "とりあえず電話で話したい",
             "data" => "action=pcall&itemid=123"
           ],
           [
@@ -41,7 +41,7 @@ if ($text == 'はい') {
           [
             "type" => "message",
             "label" => "違うやつ",
-            "text" => "違うやつお願い"
+            "text" => "もっと大それた夢ですか？"
           ]
       ]
     ]
@@ -51,18 +51,18 @@ if ($text == 'はい') {
 } else if ($text == '違うやつお願い') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "候補を３つご案内しています。",
+    "altText" => "こんな夢でしょうか？",
     "template" => [
       "type" => "carousel",
       "columns" => [
           [
             "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-1.jpg",
-            "title" => "●●レストラン",
-            "text" => "こちらにしますか？",
+            "title" => "ささやかな夢",
+            "text" => "年に一回は海外旅行にいく余裕を持つ",
             "actions" => [
               [
                   "type" => "postback",
-                  "label" => "予約する",
+                  "label" => "資金プランを見てみる",
                   "data" => "action=rsv&itemid=111"
               ],
               [
@@ -79,12 +79,12 @@ if ($text == 'はい') {
           ],
           [
             "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-2.jpg",
-            "title" => "▲▲レストラン",
-            "text" => "それともこちら？（２つ目）",
+            "title" => "堅実な夢",
+            "text" => "お子様に素晴しい教育環境を用意する",
             "actions" => [
               [
                   "type" => "postback",
-                  "label" => "予約する",
+                  "label" => "資金プランを見てみる",
                   "data" => "action=rsv&itemid=222"
               ],
               [
@@ -101,12 +101,12 @@ if ($text == 'はい') {
           ],
           [
             "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-3.jpg",
-            "title" => "■■レストラン",
-            "text" => "はたまたこちら？（３つ目）",
+            "title" => "はたまたこんな夢",
+            "text" => "50歳でアーリーリタイアして田舎暮らし",
             "actions" => [
               [
                   "type" => "postback",
-                  "label" => "予約する",
+                  "label" => "資金プランを見てみる",
                   "data" => "action=rsv&itemid=333"
               ],
               [
@@ -130,7 +130,7 @@ if ($text == 'はい') {
     "altText" => "こんにちわ 何かご用ですか？（はい／いいえ）",
     "template" => [
         "type" => "confirm",
-        "text" => "こんにちわ 何かご用ですか？",
+        "text" => "こんにちわ あなた様の夢をお聞かせ下さい。",
         "actions" => [
             [
               "type" => "message",
