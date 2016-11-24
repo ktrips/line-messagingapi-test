@@ -1,51 +1,46 @@
 <?php
 $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
-
-
 //ユーザーからのメッセージ取得
 $json_string = file_get_contents('php://input');
 $jsonObj = json_decode($json_string);
-
 $type = $jsonObj->{"events"}[0]->{"message"}->{"type"};
 //メッセージ取得
 $text = $jsonObj->{"events"}[0]->{"message"}->{"text"};
 //ReplyToken取得
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
-
 //メッセージ以外のときは何も返さず終了
 if($type != "text"){
 	exit;
 }
-
 //返信データ作成
-if ($text == 'コボ！') {
+if ($text == 'はい') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "僕はお助けコボットです！何でも言って！",
+    "altText" => "こちらの〇〇はいかがですか？",
     "template" => [
       "type" => "buttons",
       "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
-      "title" => "Kobotsメニュー",
-      "text" => "やって欲しいことを選んで下さい",
+      "title" => "○○レストラン",
+      "text" => "お探しのレストランはこれですね",
       "actions" => [
           [
             "type" => "postback",
-            "label" => "包丁でお料理！",
+            "label" => "予約する",
             "data" => "action=buy&itemid=123"
           ],
           [
             "type" => "postback",
-            "label" => "コロコロでお掃除！",
+            "label" => "電話する",
             "data" => "action=pcall&itemid=123"
           ],
           [
             "type" => "uri",
-            "label" => "ダンス！",
+            "label" => "詳しく見る",
             "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
           ],
           [
             "type" => "message",
-            "label" => "他にもあるよ",
+            "label" => "違うやつ",
             "text" => "違うやつお願い"
           ]
       ]
@@ -56,7 +51,7 @@ if ($text == 'コボ！') {
 } else if ($text == '違うやつお願い') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "他にこんなこともできるよ。",
+    "altText" => "候補を３つご案内しています。",
     "template" => [
       "type" => "carousel",
       "columns" => [
@@ -132,10 +127,10 @@ if ($text == 'コボ！') {
 } else {
   $response_format_text = [
     "type" => "template",
-    "altText" => "僕コボット！何かご用ですか？（はい／いいえ）",
+    "altText" => "こんにちわ 何かご用ですか？（はい／いいえ）",
     "template" => [
         "type" => "confirm",
-        "text" => "コボんちは、何かご用ですか？",
+        "text" => "こんにちわ 何かご用ですか？",
         "actions" => [
             [
               "type" => "message",
@@ -151,12 +146,10 @@ if ($text == 'コボ！') {
     ]
   ];
 }
-
 $post_data = [
 	"replyToken" => $replyToken,
 	"messages" => [$response_format_text]
 	];
-
 $ch = curl_init("https://api.line.me/v2/bot/message/reply");
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
