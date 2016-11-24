@@ -54,7 +54,7 @@ if ($text == 'はい') {
     "altText" => "今、おいくつですか？",
     "template" => [
       "type" => "buttons",
-      "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
+      "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/age.jpg",
       "title" => "年齢を教えて下さい",
       "text" => "今、おいくつですか？",
       "actions" => [
