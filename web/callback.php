@@ -48,10 +48,10 @@ if ($text == 'はい') {
   ];
 } else if ($text == 'いいえ') {
   $response_format_text = [
-	"thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1434.PNG",
     "type" => "template",
     "altText" => "またお声がけください",
     "template" => [
+	"thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1434.PNG",
         "type" => "confirm",
         "text" => "またお声がけください！",
     ]
@@ -89,12 +89,21 @@ if ($text == 'はい') {
       ]
     ]
   ];
+} else if ($text == '20') {
+  $response_format_text = [
+    "type" => "template",
+    "altText" => "若いっていいですね！",
+    "template" => [
+	"thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1439.PNG",
+        "type" => "confirm",
+        "text" => "若いっていいですね！がんばって働いてください！",
+    ]
+  ];
 } else if ($text == '次も見てみる') {
   $response_format_text = [
     "type" => "template",
     "altText" => "こんな夢でしょうか？",
     "template" => [
-	"thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1439.PNG",
       "type" => "carousel",
       "columns" => [
           [
