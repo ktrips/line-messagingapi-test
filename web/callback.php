@@ -20,8 +20,8 @@ if ($text == 'はい') {
     "template" => [
       "type" => "buttons",
       "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
-      "title" => "○○レストラン",
-      "text" => "お探しのレストランはこれですね",
+      "title" => "あなた様の夢を教えて下さい",
+      "text" => "いつか一戸建ての家が建てたい",
       "actions" => [
           [
             "type" => "postback",
