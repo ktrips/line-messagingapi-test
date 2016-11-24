@@ -81,39 +81,6 @@ if ($text == 'はい') {
       ]
     ]
   ];
-  if ($text == '20') {
-  $response_format_text = [
-    "type" => "template",
-    "altText" => "今、おいくつですか？",
-    "template" => [
-      "type" => "buttons",
-      "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
-      "title" => "年齢を教えて下さい",
-      "text" => "今、おいくつですか？",
-      "actions" => [
-          [
-            "type" => "message",
-            "label" => "20代？",
-            "text" => "20"
-          ],
-          [
-            "type" => "message",
-            "label" => "30代？",
-            "text" => "30"
-          ],
-          [
-            "type" => "message",
-            "label" => "40代？",
-            "text" => "40"
-          ],
-          [
-            "type" => "message",
-            "label" => "50代以上？",
-            "text" => "50"
-          ]
-      ]
-    ]
-  ];
 } else if ($text == '次も見てみる') {
   $response_format_text = [
     "type" => "template",
