@@ -16,7 +16,7 @@ if($type != "text"){
 if ($text == 'はい') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "こちらの〇〇はいかがですか？",
+    "altText" => "あなた様の夢を教えて下さい",
     "template" => [
       "type" => "buttons",
       "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
@@ -25,7 +25,7 @@ if ($text == 'はい') {
       "actions" => [
           [
             "type" => "postback",
-            "label" => "資金プランを作る",
+            "label" => "資金プランを考える",
             "data" => "action=buy&itemid=123"
           ],
           [
@@ -41,14 +41,80 @@ if ($text == 'はい') {
           [
             "type" => "message",
             "label" => "もっと大それた夢？",
-            "text" => "違うやつお願い"
+            "text" => "次も見てみる"
           ]
       ]
     ]
   ];
 } else if ($text == 'いいえ') {
   exit;
-} else if ($text == '違うやつお願い') {
+} else if ($text == '資金プランを考える') {
+  $response_format_text = [
+    "type" => "template",
+    "altText" => "今、おいくつですか？",
+    "template" => [
+      "type" => "buttons",
+      "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
+      "title" => "年齢を教えて下さい",
+      "text" => "今、おいくつですか？",
+      "actions" => [
+          [
+            "type" => "message",
+            "label" => "20代？",
+            "text" => "20"
+          ],
+          [
+            "type" => "message",
+            "label" => "30代？",
+            "text" => "30"
+          ],
+          [
+            "type" => "message",
+            "label" => "40代？",
+            "text" => "40"
+          ],
+          [
+            "type" => "message",
+            "label" => "50代以上？",
+            "text" => "50"
+          ]
+      ]
+    ]
+  ];
+  if ($text == '20') {
+  $response_format_text = [
+    "type" => "template",
+    "altText" => "今、おいくつですか？",
+    "template" => [
+      "type" => "buttons",
+      "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
+      "title" => "年齢を教えて下さい",
+      "text" => "今、おいくつですか？",
+      "actions" => [
+          [
+            "type" => "message",
+            "label" => "20代？",
+            "text" => "20"
+          ],
+          [
+            "type" => "message",
+            "label" => "30代？",
+            "text" => "30"
+          ],
+          [
+            "type" => "message",
+            "label" => "40代？",
+            "text" => "40"
+          ],
+          [
+            "type" => "message",
+            "label" => "50代以上？",
+            "text" => "50"
+          ]
+      ]
+    ]
+  ];
+} else if ($text == '次も見てみる') {
   $response_format_text = [
     "type" => "template",
     "altText" => "こんな夢でしょうか？",
