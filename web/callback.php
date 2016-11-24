@@ -24,9 +24,9 @@ if ($text == 'はい') {
       "text" => "いつかこんな一戸建ての家を建てたい",
       "actions" => [
           [
-            "type" => "postback",
-            "label" => "資金プランを考える",
-            "data" => "action=buy&itemid=123"
+            "type" => "message",
+            "label" => "資金プランを見てみる",
+            "text" => "資金プラン"
           ],
           [
             "type" => "postback",
@@ -48,7 +48,7 @@ if ($text == 'はい') {
   ];
 } else if ($text == 'いいえ') {
   exit;
-} else if ($text == '資金プランを考える') {
+} else if ($text == '資金プラン') {
   $response_format_text = [
     "type" => "template",
     "altText" => "今、おいくつですか？",
