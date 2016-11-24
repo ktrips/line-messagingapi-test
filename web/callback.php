@@ -48,6 +48,7 @@ if ($text == 'はい') {
   ];
 } else if ($text == 'いいえ') {
   $response_format_text = [
+	"thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1434.PNG",
     "type" => "template",
     "altText" => "またお声がけください",
     "template" => [
@@ -61,7 +62,7 @@ if ($text == 'はい') {
     "altText" => "今、おいくつですか？",
     "template" => [
       "type" => "buttons",
-      "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/age.jpg",
+      "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1431.PNG",
       "title" => "年齢を教えて下さい",
       "text" => "今、おいくつですか？",
       "actions" => [
@@ -93,6 +94,7 @@ if ($text == 'はい') {
     "type" => "template",
     "altText" => "こんな夢でしょうか？",
     "template" => [
+	"thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1439.PNG",
       "type" => "carousel",
       "columns" => [
           [
@@ -169,6 +171,7 @@ if ($text == 'はい') {
     "type" => "template",
     "altText" => "こんにちは あなた様の夢をお聞かせ下さい。（はい／いいえ）",
     "template" => [
+	"thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1439.PNG",
         "type" => "confirm",
         "text" => "こんにちは あなた様の夢をお聞かせ下さい。",
         "actions" => [
