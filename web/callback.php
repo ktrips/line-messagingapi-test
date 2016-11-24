@@ -97,6 +97,18 @@ if ($text == 'はい') {
 	"thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1439.PNG",
         "type" => "confirm",
         "text" => "若いっていいですね！がんばって働いてください！",
+	"actions" => [
+            [
+              "type" => "message",
+              "label" => "はい",
+              "text" => "はい"
+            ],
+            [
+              "type" => "message",
+              "label" => "いいえ",
+              "text" => "いいえ"
+            ]
+        ]
     ]
   ];
 } else if ($text == '次も見てみる') {
