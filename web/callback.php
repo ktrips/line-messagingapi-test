@@ -47,7 +47,14 @@ if ($text == 'はい') {
     ]
   ];
 } else if ($text == 'いいえ') {
-  exit;
+  $response_format_text = [
+    "type" => "template",
+    "altText" => "またお声がけください",
+    "template" => [
+        "type" => "confirm",
+        "text" => "またお声がけください！",
+    ]
+  ];
 } else if ($text == '資金プラン') {
   $response_format_text = [
     "type" => "template",
@@ -160,10 +167,10 @@ if ($text == 'はい') {
 } else {
   $response_format_text = [
     "type" => "template",
-    "altText" => "こんにちわ 何かご用ですか？（はい／いいえ）",
+    "altText" => "こんにちは あなた様の夢をお聞かせ下さい。（はい／いいえ）",
     "template" => [
         "type" => "confirm",
-        "text" => "こんにちわ あなた様の夢をお聞かせ下さい。",
+        "text" => "こんにちは あなた様の夢をお聞かせ下さい。",
         "actions" => [
             [
               "type" => "message",
