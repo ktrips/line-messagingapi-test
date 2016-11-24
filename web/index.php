@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>こちらはLINE Messaging APIのデモサイトです。</title>
+<title>This is LINE Messaging API for FUN!d.BOT</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-こちらはLINE Messaging APIのデモサイトです。
+This is LINE Messaging API for FUN!d.BOT
 </body>
 </html>
