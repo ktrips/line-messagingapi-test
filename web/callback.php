@@ -25,12 +25,12 @@ if ($text == 'はい') {
       "actions" => [
           [
             "type" => "postback",
-            "label" => "家を建てる為の資金プランを作る",
+            "label" => "資金プランを作る",
             "data" => "action=buy&itemid=123"
           ],
           [
             "type" => "postback",
-            "label" => "とりあえず電話で話したい",
+            "label" => "とりあえず電話する",
             "data" => "action=pcall&itemid=123"
           ],
           [
@@ -40,8 +40,8 @@ if ($text == 'はい') {
           ],
           [
             "type" => "message",
-            "label" => "違うやつ",
-            "text" => "もっと大それた夢ですか？"
+            "label" => "もっと大それた夢？",
+            "text" => "違うやつお願い"
           ]
       ]
     ]
