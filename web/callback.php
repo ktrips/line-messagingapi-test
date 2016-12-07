@@ -46,7 +46,7 @@ if ($text == 'はい') {
       ]
     ]
   ];
-} else if ($text == 'いいえ') {
+} else if ($text == 'いいえ' or $text == 'NObo') {
   $response_format_text = [
     "type" => "template",
     "altText" => "またお声がけください",
@@ -59,23 +59,58 @@ if ($text == 'はい') {
 } else if ($text == 'お部屋') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "お部屋の状況をチェックしますか？（はい／いいえ）",
+    "altText" => "お部屋の状況をチェックしますか？（はいKObo!／いいえNObo!）",
     "template" => [
 	"thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1439.PNG",
         "type" => "confirm",
         "text" => "お部屋の状況をチェックしますか？",
         "actions" => [
             [
-              "type" => "message",
-              "label" => "Kobo",
-              "text" => "Kobo"
+              "type" => "uri",
+              "label" => "KObo!",
+              "text" => "KObo",
+	      "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
             ],
             [
               "type" => "message",
-              "label" => "Nobo",
-              "text" => "Nobo"
+              "label" => "NObo!",
+              "text" => "NObo"
             ]
         ]
+    ]
+  ];
+} else if ($text == 'KObo') {
+  $response_format_text = [
+    "type" => "template",
+    "altText" => "お部屋の状況",
+    "template" => [
+      "type" => "buttons",
+      "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1431.PNG",
+      "title" => "お部屋の何をチェックしたいですか？",
+      "text" => "お部屋のチェック",
+      "actions" => [
+          [
+            "type" => "message",
+            "label" => "部屋の温度、湿度",
+            "text" => "temp",
+	    "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
+          ],
+          [
+            "type" => "message",
+            "label" => "エア・クオリティ",
+            "text" => "air"
+          ],
+          [
+            "type" => "message",
+            "label" => "誰かいるか",
+            "text" => "human"
+          ],
+          [
+            "type" => "message",
+            "label" => "ワンちゃんの状況",
+            "text" => "dog"
+          ]
+      ]
     ]
   ];
 } else if ($text == '資金プラン') {
@@ -121,10 +156,9 @@ if ($text == 'はい') {
         "text" => "若いっていいですね！がんばって働いてください！",
 	"actions" => [
             [
-              "type" => "uri",
+              "type" => "message",
               "label" => "はい",
-              "text" => "はい",
-              "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
+              "text" => "はい"
             ],
             [
               "type" => "message",
