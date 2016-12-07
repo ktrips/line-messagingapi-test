@@ -116,6 +116,66 @@ if ($text == 'はい') {
       ]
     ]
   ];
+} else if ($text == 'temp' or $text == 'air') {
+  $response_format_text = [
+    "type" => "template",
+    "altText" => "エアコンつけますか？（はいAircon／いいえNoair）",
+    "template" => [
+	"thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1439.PNG",
+        "type" => "confirm",
+        "text" => "エアコンつけますか？",
+        "actions" => [
+            [
+              "type" => "uri",
+              "label" => "エアコンつける",
+              "text" => "Aircon",
+	      "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
+            ],
+            [
+              "type" => "message",
+              "label" => "つけない",
+              "text" => "Noair"
+            ]
+        ]
+    ]
+  ];
+} else if ($text == 'human') {
+  $response_format_text = [
+    "type" => "template",
+    "altText" => "誰かいる！",
+    "template" => [
+      "type" => "buttons",
+      "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1431.PNG",
+      "title" => "誰かいるみたい！",
+      "text" => "そこにいるのはどなた？？",
+      "actions" => [
+          [
+            "type" => "uri",
+            "label" => "話しかけてみる",
+            "text" => "speak",
+	    "uri" => "https://us.wio.seeed.io/v1/node/GroveTempHumD1/temperature?access_token=eecdb61def9790e172d1ad2a63aed257"
+          ],
+          [
+            "type" => "uri",
+            "label" => "威嚇音を出す！",
+            "text" => "alarm",
+	    "uri" => "https://us.wio.seeed.io/v1/node/GroveAirqualityA0/quality?access_token=eecdb61def9790e172d1ad2a63aed257"
+	  ],
+          [
+            "type" => "uri",
+            "label" => "友達になる",
+            "text" => "friend",
+	    "uri" => "https://us.wio.seeed.io/v1/node/GrovePIRMotionD0/approach?access_token=eecdb61def9790e172d1ad2a63aed257"
+  	  ],
+          [
+            "type" => "message",
+            "label" => "知らんぷり。。",
+            "text" => "Noaction",
+	    "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
+          ]
+      ]
+    ]
+  ];
 } else if ($text == '資金プラン') {
   $response_format_text = [
     "type" => "template",
