@@ -89,6 +89,11 @@ if ($text == 'dream') {
             "label" => "今日の運勢",
             "text" => "fortune",
 	    "uri" => "http://fortune.goo.ne.jp/destiny/"
+          ],
+	  [       
+            "type": "postback",
+            "label": "Buy",
+            "data": "action=buy&itemid=111"
           ]
       ]
     ]
