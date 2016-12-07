@@ -13,7 +13,7 @@ if($type != "text"){
 	exit;
 }
 //返信データ作成
-if ($text == 'はい') {
+if ($text == 'dream') {
   $response_format_text = [
     "type" => "template",
     "altText" => "あなた様の夢を教えて下さい",
@@ -46,7 +46,7 @@ if ($text == 'はい') {
       ]
     ]
   ];
-} else if ($text == 'いいえ' or $text == 'NObo') {
+} else if ($text == 'no' or $text == 'いいえ' or $text == 'NObo') {
   $response_format_text = [
     "type" => "template",
     "altText" => "またお声がけください",
@@ -64,7 +64,7 @@ if ($text == 'はい') {
       "type" => "buttons",
       "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1431.PNG",
       "title" => "はろーコボットだよ！",
-      "text" => "ご主人様、",
+      "text" => "ご主人様、いかがいたしましょうか。",
       "actions" => [
           [
             "type" => "message",
@@ -367,7 +367,7 @@ if ($text == 'はい') {
       ]
     ]
   ];
-} else if ($text == 'お金') {
+} else if ($text == 'お金' or $text == '夢' or $text == '資産' or $text == '運用') {
   $response_format_text = [
     "type" => "template",
     "altText" => "こんにちは あなた様の夢をお聞かせ下さい。（はい／いいえ）",
@@ -379,12 +379,12 @@ if ($text == 'はい') {
             [
               "type" => "message",
               "label" => "はい",
-              "text" => "はい"
+              "text" => "dream"
             ],
             [
               "type" => "message",
               "label" => "いいえ",
-              "text" => "いいえ"
+              "text" => "no"
             ]
         ]
     ]
