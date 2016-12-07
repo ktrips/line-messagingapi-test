@@ -59,7 +59,7 @@ if ($text == 'はい') {
 } else if ($text == 'お部屋') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "お部屋の状況をチェックしますか？（はいKObo!／いいえNObo!）",
+    "altText" => "お部屋の状況をチェックしますか？（はいKO!／いいえNO!）",
     "template" => [
 	"thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1439.PNG",
         "type" => "confirm",
@@ -67,13 +67,13 @@ if ($text == 'はい') {
         "actions" => [
             [
               "type" => "message",
-              "label" => "KObo!",
+              "label" => "KO!",
               "text" => "KObo",
 	      "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
             ],
             [
               "type" => "message",
-              "label" => "NObo!",
+              "label" => "NO!",
               "text" => "NObo"
             ]
         ]
@@ -90,19 +90,19 @@ if ($text == 'はい') {
       "text" => "お部屋のチェック",
       "actions" => [
           [
-            "type" => "uri",
+            "type" => "message",
             "label" => "部屋の温度、湿度",
             "text" => "temp",
 	    "uri" => "https://us.wio.seeed.io/v1/node/GroveTempHumD1/temperature?access_token=eecdb61def9790e172d1ad2a63aed257"
           ],
           [
-            "type" => "uri",
+            "type" => "message",
             "label" => "エア・クオリティ",
             "text" => "air",
 	    "uri" => "https://us.wio.seeed.io/v1/node/GroveAirqualityA0/quality?access_token=eecdb61def9790e172d1ad2a63aed257"
 	  ],
           [
-            "type" => "uri",
+            "type" => "message",
             "label" => "誰かいる？",
             "text" => "human",
 	    "uri" => "https://us.wio.seeed.io/v1/node/GrovePIRMotionD0/approach?access_token=eecdb61def9790e172d1ad2a63aed257"
@@ -174,6 +174,29 @@ if ($text == 'はい') {
 	    "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
           ]
       ]
+    ]
+  ];
+} else if ($text == 'dog') {
+  $response_format_text = [
+    "type" => "template",
+    "altText" => "ワンちゃんの映像見る？（はい／いいえ）",
+    "template" => [
+	"thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1439.PNG",
+        "type" => "confirm",
+        "text" => "エアコンつけますか？",
+        "actions" => [
+            [
+              "type" => "uri",
+              "label" => "映像見る",
+              "text" => "dogvideo",
+	      "uri" => "https://www.youtube.com/watch?v=6qA7YTK4kgA"
+            ],
+            [
+              "type" => "message",
+              "label" => "興味ない",
+              "text" => "Nodog"
+            ]
+        ]
     ]
   ];
 } else if ($text == '資金プラン') {
