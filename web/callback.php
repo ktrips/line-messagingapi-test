@@ -91,9 +91,9 @@ if ($text == 'dream') {
 	    "uri" => "http://fortune.goo.ne.jp/destiny/"
           ],
 	  [       
-            "type": "postback",
-            "label": "Buy",
-            "data": "action=buy&itemid=111"
+            "type" => "postback",
+            "label" => "Buy",
+            "data" => "action=buy&itemid=111"
           ]
       ]
     ]
