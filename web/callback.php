@@ -56,7 +56,44 @@ if ($text == 'はい') {
         "text" => "またお声がけください！",
     ]
   ];
-} else if ($text == 'お部屋') {
+} else if ($text == 'Kobohon' or $text == 'コボホン' or $text == 'Kobot' or $text == 'コボット' or $text == 'Hello' or $text == 'はろ' or $text == 'Hi' or $text == 'はーい') {
+  $response_format_text = [
+    "type" => "template",
+    "altText" => "Hello Kobot World",
+    "template" => [
+      "type" => "buttons",
+      "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1431.PNG",
+      "title" => "はろーコボットだよ！",
+      "text" => "ご主人様、",
+      "actions" => [
+          [
+            "type" => "message",
+            "label" => "天気予報チェック",
+            "text" => "weather",
+	    "uri" => "https://us.wio.seeed.io/v1/node/GroveTempHumD1/temperature?access_token=eecdb61def9790e172d1ad2a63aed257"
+          ],
+          [
+            "type" => "message",
+            "label" => "お部屋チェック",
+            "text" => "お部屋",
+	    "uri" => "https://us.wio.seeed.io/v1/node/GroveAirqualityA0/quality?access_token=eecdb61def9790e172d1ad2a63aed257"
+	  ],
+          [
+            "type" => "message",
+            "label" => "経路案内",
+            "text" => "route",
+	    "uri" => "https://us.wio.seeed.io/v1/node/GrovePIRMotionD0/approach?access_token=eecdb61def9790e172d1ad2a63aed257"
+  	  ],
+          [
+            "type" => "uri",
+            "label" => "今日の運勢",
+            "text" => "fortune",
+	    "uri" => "http://fortune.goo.ne.jp/destiny/"
+          ]
+      ]
+    ]
+  ];
+} else if ($text == 'fortune') {
   $response_format_text = [
     "type" => "template",
     "altText" => "お部屋の状況をチェックしますか？（はいKO!／いいえNO!）",
@@ -67,7 +104,7 @@ if ($text == 'はい') {
         "actions" => [
             [
               "type" => "message",
-              "label" => "KO!",
+              "label" => "OK!",
               "text" => "KObo",
 	      "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
             ],
@@ -79,7 +116,7 @@ if ($text == 'はい') {
         ]
     ]
   ];
-} else if ($text == 'KObo') {
+} else if ($text == 'room' or $text == 'ルーム' or $text == 'お部屋' or $text == 'チェック') {
   $response_format_text = [
     "type" => "template",
     "altText" => "お部屋の状況",
@@ -127,7 +164,7 @@ if ($text == 'はい') {
         "actions" => [
             [
               "type" => "uri",
-              "label" => "エアコンつける",
+              "label" => "つける！",
               "text" => "Aircon",
 	      "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
             ],
@@ -183,7 +220,7 @@ if ($text == 'はい') {
     "template" => [
 	"thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1439.PNG",
         "type" => "confirm",
-        "text" => "エアコンつけますか？",
+        "text" => "ワンちゃんの状況知りたいよね？",
         "actions" => [
             [
               "type" => "uri",
