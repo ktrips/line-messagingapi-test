@@ -93,20 +93,20 @@ if ($text == 'はい') {
             "type" => "uri",
             "label" => "部屋の温度、湿度",
             "text" => "temp",
-	    "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
+	    "uri" => "https://us.wio.seeed.io/v1/node/GroveTempHumD1/temperature?access_token=eecdb61def9790e172d1ad2a63aed257"
           ],
           [
-            "type" => "message",
+            "type" => "uri",
             "label" => "エア・クオリティ",
             "text" => "air",
-	    "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
-          ],
+	    "uri" => "https://us.wio.seeed.io/v1/node/GroveAirqualityA0/quality?access_token=eecdb61def9790e172d1ad2a63aed257"
+	  ],
           [
-            "type" => "message",
+            "type" => "uri",
             "label" => "誰かいる？",
             "text" => "human",
-	    "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
-          ],
+	    "uri" => "https://us.wio.seeed.io/v1/node/GrovePIRMotionD0/approach?access_token=eecdb61def9790e172d1ad2a63aed257"
+  	  ],
           [
             "type" => "message",
             "label" => "ワンちゃんの状況",
@@ -247,7 +247,7 @@ if ($text == 'はい') {
       ]
     ]
   ];
-} else {
+} else if ($text == 'お金') {
   $response_format_text = [
     "type" => "template",
     "altText" => "こんにちは あなた様の夢をお聞かせ下さい。（はい／いいえ）",
