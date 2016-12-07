@@ -46,7 +46,7 @@ if ($text == 'はい') {
       ]
     ]
   ];
-} else if ($text == 'いいえ') or ($text == 'Nobo') {
+} else if ($text == 'いいえ') {
   $response_format_text = [
     "type" => "template",
     "altText" => "またお声がけください",
@@ -121,9 +121,10 @@ if ($text == 'はい') {
         "text" => "若いっていいですね！がんばって働いてください！",
 	"actions" => [
             [
-              "type" => "message",
+              "type" => "uri",
               "label" => "はい",
-              "text" => "はい"
+              "text" => "はい",
+              "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
             ],
             [
               "type" => "message",
