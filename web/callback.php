@@ -46,7 +46,7 @@ if ($text == 'はい') {
       ]
     ]
   ];
-} else if ($text == 'いいえ') {
+} else if ($text == 'いいえ') or ($text == 'Nobo') {
   $response_format_text = [
     "type" => "template",
     "altText" => "またお声がけください",
@@ -54,6 +54,28 @@ if ($text == 'はい') {
 	"thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1434.PNG",
         "type" => "confirm",
         "text" => "またお声がけください！",
+    ]
+  ];
+} else if ($text == 'お部屋') {
+  $response_format_text = [
+    "type" => "template",
+    "altText" => "お部屋の状況をチェックしますか？（はい／いいえ）",
+    "template" => [
+	"thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1439.PNG",
+        "type" => "confirm",
+        "text" => "お部屋の状況をチェックしますか？",
+        "actions" => [
+            [
+              "type" => "message",
+              "label" => "Kobo",
+              "text" => "Kobo"
+            ],
+            [
+              "type" => "message",
+              "label" => "Nobo",
+              "text" => "Nobo"
+            ]
+        ]
     ]
   ];
 } else if ($text == '資金プラン') {
