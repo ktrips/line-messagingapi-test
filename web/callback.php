@@ -56,7 +56,7 @@ if ($text == 'dream') {
         "text" => "またお声がけください！",
     ]
   ];
-} else if ($text == 'Kobohon' or $text == 'コボホン' or $text == 'Kobot' or $text == 'コボット' or $text == 'Hello' or $text == 'はろ' or $text == 'Hi' or $text == 'はーい') {
+} else if ($text == 'Kobohon' or $text == 'コボホン' or $text == 'Kobot' or $text == 'Kobo' or $text == 'コボット' or $text == 'コボ' or $text == 'Hello' or $text == 'はろ' or $text == 'Hi' or $text == 'はーい') {
   $response_format_text = [
     "type" => "template",
     "altText" => "Hello Kobot World",
