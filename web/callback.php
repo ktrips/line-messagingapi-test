@@ -79,11 +79,11 @@ if ($text == 'dream') {
 	    "uri" => "https://us.wio.seeed.io/v1/node/GroveAirqualityA0/quality?access_token=eecdb61def9790e172d1ad2a63aed257"
 	  ],
           [
-            "type" => "message",
+            "type" => "postback",
             "label" => "経路案内",
             "text" => "route",
-	    "uri" => "https://us.wio.seeed.io/v1/node/GrovePIRMotionD0/approach?access_token=eecdb61def9790e172d1ad2a63aed257"
-  	  ],
+	    "data" => "action=buy&itemid=111"
+          ],
           [
             "type" => "uri",
             "label" => "今日の運勢",
