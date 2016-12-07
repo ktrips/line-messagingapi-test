@@ -66,7 +66,7 @@ if ($text == 'はい') {
         "text" => "お部屋の状況をチェックしますか？",
         "actions" => [
             [
-              "type" => "uri",
+              "type" => "message",
               "label" => "KObo!",
               "text" => "KObo",
 	      "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
@@ -90,7 +90,7 @@ if ($text == 'はい') {
       "text" => "お部屋のチェック",
       "actions" => [
           [
-            "type" => "message",
+            "type" => "uri",
             "label" => "部屋の温度、湿度",
             "text" => "temp",
 	    "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
@@ -98,17 +98,20 @@ if ($text == 'はい') {
           [
             "type" => "message",
             "label" => "エア・クオリティ",
-            "text" => "air"
+            "text" => "air",
+	    "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
           ],
           [
             "type" => "message",
-            "label" => "誰かいるか",
-            "text" => "human"
+            "label" => "誰かいる？",
+            "text" => "human",
+	    "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
           ],
           [
             "type" => "message",
             "label" => "ワンちゃんの状況",
-            "text" => "dog"
+            "text" => "dog",
+	    "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
           ]
       ]
     ]
