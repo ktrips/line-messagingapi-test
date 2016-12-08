@@ -6,6 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-This is LINE Messaging API for FUN!d.BOT
+Thank you for coming KtriBot!
+<img src=IMG_1426.PNG align=right><img src=IMG_1427.PNG align=right><img src=IMG_1428.PNG align=right>
+<img src=IMG_1429.PNG align=right><img src=IMG_1430.PNG align=right><img src=IMG_1431.PNG align=right>
 </body>
 </html>
