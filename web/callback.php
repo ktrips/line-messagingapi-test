@@ -60,6 +60,42 @@ if ($text == 'dream') {
 	"thumbnailImageUrl" => "$res_img",
         "type" => "confirm",
         "text" => "またお声がけください！",
+	"actions" => [
+            [
+              "type" => "message",
+              "label" => "続ける",
+	      "text" => "コボット",
+	      "uri" => "https://us.wio.seeed.io/v1/node/GroveTempHumD1/temperature?access_token=eecdb61def9790e172d1ad2a63aed257"
+            ],
+            [
+              "type" => "message",
+              "label" => "終了する",
+              "text" => "今日もいい一日を！"
+            ]
+	  }
+    ]
+  ];
+} else if (substr($text,0,12) == '[IFTTT] 本日の天気') {
+  $response_format_text = [
+    "type" => "template",
+    "altText" => "天気の確認",
+    "template" => [
+	"thumbnailImageUrl" => "$res_img",
+        "type" => "confirm",
+        "text" => "お部屋の温度も測りますか？",
+	"actions" => [
+            [
+              "type" => "message",
+              "label" => "はい",
+	      "text" => "お部屋の温度は20度、湿度は30%です。",
+	      "uri" => "https://us.wio.seeed.io/v1/node/GroveTempHumD1/temperature?access_token=eecdb61def9790e172d1ad2a63aed257"
+            ],
+            [
+              "type" => "message",
+              "label" => "いいえ",
+              "text" => "今日もいい一日を！"
+            ]
+        ]
     ]
   ];
 } else if ($text == 'Kobohon' or $text == 'コボホン' or $text == 'Kobot' or $text == 'Kobo' or $text == 'コボット' or $text == 'コボ' or $text == 'Hello' or $text == 'はろ' or $text == 'Hi' or $text == 'はーい') {
@@ -99,7 +135,7 @@ if ($text == 'dream') {
       ]
     ]
   ];
-} else if ($text == 'お部屋チェック' or $text == 'room' or $text == 'ルーム' or $text == 'お部屋' or $text == 'チェック' or $text == 'ご主人様お仕事お疲れ様でした') {
+} else if ($text == 'お部屋チェック' or $text == 'room' or $text == 'ルーム' or $text == 'お部屋' or $text == 'チェック' or $text == '[IFTTT] ご主人様お仕事お疲れ様でした') {
   $response_format_text = [
     "type" => "template",
     "altText" => "お部屋の状況",
@@ -136,7 +172,7 @@ if ($text == 'dream') {
       ]
     ]
   ];	
-} else if ($text == 'お部屋の温度は20度、湿度は30%です。' or $text == 'エアクオリティは30です。' or $text == 'ご主人様のお帰り') {
+} else if ($text == 'お部屋の温度は20度、湿度は30%です。' or $text == 'エアクオリティは30です。' or $text == '[IFTTT] ご主人様のお帰り') {
   $response_format_text = [
     "type" => "template",
     "altText" => "エアコンつけますか？（はい／いいえ）",
