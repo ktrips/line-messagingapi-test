@@ -232,6 +232,14 @@ if ($text == 'dream') {
       ]
     ]
   ];
+} else if ($text == '知らんぷり。。') {
+	function makeStickerPostData($packageId, $stickerId) {
+		return [
+			"type" => "sticker",
+			"packageId" => $packageId,
+			"stickerId" => $stickerId,
+			];
+	}
 } else if ($text == 'ワンちゃんチェック') {
   $response_format_text = [
     "type" => "template",
