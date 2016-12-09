@@ -12,6 +12,11 @@ $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 if($type != "text"){
 	exit;
 }
+//Res image
+$res_img = "https://ktribot.herokuapp.com/IMG_" . rand(1426,1468) . ".PNG";
+  //. $_SERVER['SERVER_NAME'] 
+$res_img_url = "<img src=" . $res_img . ">";
+
 //返信データ作成
 if ($text == 'dream') {
   $response_format_text = [
@@ -19,7 +24,8 @@ if ($text == 'dream') {
     "altText" => "あなた様の夢を教えて下さい",
     "template" => [
       "type" => "buttons",
-      "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
+      //"thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
+	"thumbnailImageUrl" => "$res_img",
       "title" => "あなた様の夢を教えて下さい",
       "text" => "いつかこんな一戸建ての家を建てたい",
       "actions" => [
@@ -51,7 +57,7 @@ if ($text == 'dream') {
     "type" => "template",
     "altText" => "またお声がけください",
     "template" => [
-	"thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1434.PNG",
+	"thumbnailImageUrl" => "$res_img",
         "type" => "confirm",
         "text" => "またお声がけください！",
     ]
@@ -62,176 +68,153 @@ if ($text == 'dream') {
     "altText" => "Hello Kobot World",
     "template" => [
       "type" => "buttons",
-      "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1431.PNG",
+	"thumbnailImageUrl" => "$res_img",
       "title" => "はろーコボットだよ！",
       "text" => "ご主人様、いかがいたしましょうか。",
       "actions" => [
           [
             "type" => "message",
             "label" => "天気予報チェック",
-            "text" => "weather",
+            "text" => "お天気は曇り、気温は15度です。",
 	    "uri" => "https://us.wio.seeed.io/v1/node/GroveTempHumD1/temperature?access_token=eecdb61def9790e172d1ad2a63aed257"
           ],
           [
             "type" => "message",
             "label" => "お部屋チェック",
-            "text" => "お部屋",
+            "text" => "お部屋チェック",
 	    "uri" => "https://us.wio.seeed.io/v1/node/GroveAirqualityA0/quality?access_token=eecdb61def9790e172d1ad2a63aed257"
 	  ],
           [
             "type" => "postback",
-            "label" => "経路案内",
-            "text" => "route",
+            "label" => "今日の予定チェック",
+            "text" => "今日の予定チェック",
 	    "data" => "action=buy&itemid=111"
           ],
           [
             "type" => "uri",
             "label" => "今日の運勢",
-            "text" => "fortune",
-	    "uri" => "http://fortune.goo.ne.jp/destiny/"
+            "text" => "今日の運勢は、、、ラッキーなことがあるでしょう！",
+	    "uri" => "http://ktribot.herokuapp.com/random.php"
           ]
       ]
     ]
   ];
-} else if ($text == 'fortune') {
-  $response_format_text = [
-    "type" => "template",
-    "altText" => "お部屋の状況をチェックしますか？（はいKO!／いいえNO!）",
-    "template" => [
-	"thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1439.PNG",
-        "type" => "confirm",
-        "text" => "お部屋の状況をチェックしますか？",
-        "actions" => [
-            [
-              "type" => "message",
-              "label" => "OK!",
-              "text" => "KObo",
-	      "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
-            ],
-            [
-              "type" => "message",
-              "label" => "NO!",
-              "text" => "NObo"
-            ]
-        ]
-    ]
-  ];
-} else if ($text == 'room' or $text == 'ルーム' or $text == 'お部屋' or $text == 'チェック') {
+} else if ($text == 'お部屋チェック' or $text == 'room' or $text == 'ルーム' or $text == 'お部屋' or $text == 'チェック') {
   $response_format_text = [
     "type" => "template",
     "altText" => "お部屋の状況",
     "template" => [
       "type" => "buttons",
-      "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1431.PNG",
+	"thumbnailImageUrl" => "$res_img",
       "title" => "お部屋の何をチェックしたいですか？",
       "text" => "お部屋のチェック",
       "actions" => [
           [
             "type" => "message",
             "label" => "部屋の温度、湿度",
-            "text" => "temp",
+            "text" => "お部屋の温度は20度、湿度は30%です。",
 	    "uri" => "https://us.wio.seeed.io/v1/node/GroveTempHumD1/temperature?access_token=eecdb61def9790e172d1ad2a63aed257"
           ],
           [
             "type" => "message",
             "label" => "エア・クオリティ",
-            "text" => "air",
+            "text" => "エアクオリティは30です。",
 	    "uri" => "https://us.wio.seeed.io/v1/node/GroveAirqualityA0/quality?access_token=eecdb61def9790e172d1ad2a63aed257"
 	  ],
           [
             "type" => "message",
-            "label" => "誰かいる？",
-            "text" => "human",
+            "label" => "誰かいるかチェック",
+            "text" => "誰かいるかチェック",
 	    "uri" => "https://us.wio.seeed.io/v1/node/GrovePIRMotionD0/approach?access_token=eecdb61def9790e172d1ad2a63aed257"
   	  ],
           [
             "type" => "message",
-            "label" => "ワンちゃんの状況",
-            "text" => "dog",
+            "label" => "ワンちゃんの状況チェック",
+            "text" => "ワンちゃんチェック",
 	    "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
           ]
       ]
     ]
   ];
-} else if ($text == 'temp' or $text == 'air') {
+} else if ($text == 'お部屋の温度は20度、湿度は30%です。' or $text == 'エアクオリティは30です。') {
   $response_format_text = [
     "type" => "template",
     "altText" => "エアコンつけますか？（はいAircon／いいえNoair）",
     "template" => [
-	"thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1439.PNG",
+	"thumbnailImageUrl" => "$res_img",
         "type" => "confirm",
         "text" => "エアコンつけますか？",
         "actions" => [
             [
               "type" => "uri",
               "label" => "つける！",
-              "text" => "Aircon",
+              "text" => "エアコンつける！",
 	      "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
             ],
             [
               "type" => "message",
-              "label" => "つけない",
+              "label" => "エアコンつけない",
               "text" => "Noair"
             ]
         ]
     ]
   ];
-} else if ($text == 'human') {
+} else if ($text == '誰かいるかチェック') {
   $response_format_text = [
     "type" => "template",
     "altText" => "誰かいる！",
     "template" => [
       "type" => "buttons",
-      "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1431.PNG",
+	"thumbnailImageUrl" => "$res_img",
       "title" => "誰かいるみたい！",
       "text" => "そこにいるのはどなた？？",
       "actions" => [
           [
             "type" => "uri",
             "label" => "話しかけてみる",
-            "text" => "speak",
+            "text" => "話しかけてみる",
 	    "uri" => "https://us.wio.seeed.io/v1/node/GroveTempHumD1/temperature?access_token=eecdb61def9790e172d1ad2a63aed257"
           ],
           [
             "type" => "uri",
             "label" => "威嚇音を出す！",
-            "text" => "alarm",
+            "text" => "威嚇音を出す！",
 	    "uri" => "https://us.wio.seeed.io/v1/node/GroveAirqualityA0/quality?access_token=eecdb61def9790e172d1ad2a63aed257"
 	  ],
           [
             "type" => "uri",
             "label" => "友達になる",
-            "text" => "friend",
+            "text" => "友達になる",
 	    "uri" => "https://us.wio.seeed.io/v1/node/GrovePIRMotionD0/approach?access_token=eecdb61def9790e172d1ad2a63aed257"
   	  ],
           [
             "type" => "message",
             "label" => "知らんぷり。。",
-            "text" => "Noaction",
+            "text" => "知らんぷり。。",
 	    "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
           ]
       ]
     ]
   ];
-} else if ($text == 'dog') {
+} else if ($text == 'ワンちゃんチェック') {
   $response_format_text = [
     "type" => "template",
     "altText" => "ワンちゃんの映像見る？（はい／いいえ）",
     "template" => [
-	"thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1439.PNG",
+	"thumbnailImageUrl" => "$res_img",
         "type" => "confirm",
         "text" => "ワンちゃんの状況知りたいよね？",
         "actions" => [
             [
               "type" => "uri",
               "label" => "映像見る",
-              "text" => "dogvideo",
+              "text" => "ワンちゃん映像",
 	      "uri" => "https://www.youtube.com/watch?v=6qA7YTK4kgA"
             ],
             [
               "type" => "message",
               "label" => "興味ない",
-              "text" => "Nodog"
+              "text" => "ワンちゃん興味なし"
             ]
         ]
     ]
@@ -242,7 +225,7 @@ if ($text == 'dream') {
     "altText" => "今、おいくつですか？",
     "template" => [
       "type" => "buttons",
-      "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1431.PNG",
+	"thumbnailImageUrl" => "$res_img",
       "title" => "年齢を教えて下さい",
       "text" => "今、おいくつですか？",
       "actions" => [
@@ -274,7 +257,7 @@ if ($text == 'dream') {
     "type" => "template",
     "altText" => "若いっていいですね！",
     "template" => [
-	"thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1439.PNG",
+	"thumbnailImageUrl" => "$res_img",
         "type" => "confirm",
         "text" => "若いっていいですね！がんばって働いてください！",
 	"actions" => [
@@ -372,7 +355,7 @@ if ($text == 'dream') {
     "type" => "template",
     "altText" => "こんにちは あなた様の夢をお聞かせ下さい。（はい／いいえ）",
     "template" => [
-	"thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/IMG_1439.PNG",
+	"thumbnailImageUrl" => "$res_img",
         "type" => "confirm",
         "text" => "こんにちは あなた様の夢をお聞かせ下さい。",
         "actions" => [
@@ -390,6 +373,7 @@ if ($text == 'dream') {
     ]
   ];
 }
+
 $post_data = [
 	"replyToken" => $replyToken,
 	"messages" => [$response_format_text]
