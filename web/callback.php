@@ -99,7 +99,8 @@ if ($text == 'dream') {
       ]
     ]
   ];
-} else if ($text == 'お部屋チェック' or $text == 'room' or $text == 'ルーム' or $text == 'お部屋' or $text == 'チェック') {
+} else if ($text == 'お部屋チェック' or $text == 'room' or $text == 'ルーム' or $text == 'お部屋' or $text == 'チェック' or $text == '
+ご主人様お仕事お疲れ様でした') {
   $response_format_text = [
     "type" => "template",
     "altText" => "お部屋の状況",
@@ -135,26 +136,26 @@ if ($text == 'dream') {
           ]
       ]
     ]
-  ];
-} else if ($text == 'お部屋の温度は20度、湿度は30%です。' or $text == 'エアクオリティは30です。') {
+  ];	
+} else if ($text == 'お部屋の温度は20度、湿度は30%です。' or $text == 'エアクオリティは30です。' or $text == 'ご主人様のお帰り') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "エアコンつけますか？（はいAircon／いいえNoair）",
+    "altText" => "エアコンつけますか？（はい／いいえ）",
     "template" => [
 	"thumbnailImageUrl" => "$res_img",
         "type" => "confirm",
         "text" => "エアコンつけますか？",
         "actions" => [
             [
-              "type" => "uri",
+              "type" => "message",
               "label" => "つける！",
               "text" => "エアコンつける！",
 	      "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
             ],
             [
               "type" => "message",
-              "label" => "エアコンつけない",
-              "text" => "Noair"
+              "label" => "つけない！",
+              "text" => "エアコンつけない"
             ]
         ]
     ]
@@ -176,10 +177,10 @@ if ($text == 'dream') {
 	    "uri" => "https://us.wio.seeed.io/v1/node/GroveTempHumD1/temperature?access_token=eecdb61def9790e172d1ad2a63aed257"
           ],
           [
-            "type" => "uri",
+            "type" => "message",
             "label" => "威嚇音を出す！",
-            "text" => "威嚇音を出す！",
-	    "uri" => "https://us.wio.seeed.io/v1/node/GroveAirqualityA0/quality?access_token=eecdb61def9790e172d1ad2a63aed257"
+            "text" => "ぶーーーん！",
+	    "uri" => "https://maker.ifttt.com/trigger/ktribot/with/key/dSWLYz6_m8AY6x-nMrdkJ1"
 	  ],
           [
             "type" => "uri",
