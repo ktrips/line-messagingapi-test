@@ -72,7 +72,7 @@ if ($text == 'dream') {
               "label" => "終了する",
               "text" => "今日もいい一日を！"
             ]
-	  }
+	]
     ]
   ];
 } else if (substr($text,0,12) == '[IFTTT] 本日の天気') {
