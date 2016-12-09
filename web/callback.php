@@ -99,8 +99,7 @@ if ($text == 'dream') {
       ]
     ]
   ];
-} else if ($text == 'お部屋チェック' or $text == 'room' or $text == 'ルーム' or $text == 'お部屋' or $text == 'チェック' or $text == '
-ご主人様お仕事お疲れ様でした') {
+} else if ($text == 'お部屋チェック' or $text == 'room' or $text == 'ルーム' or $text == 'お部屋' or $text == 'チェック' or $text == 'ご主人様お仕事お疲れ様でした') {
   $response_format_text = [
     "type" => "template",
     "altText" => "お部屋の状況",
