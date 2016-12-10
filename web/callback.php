@@ -66,7 +66,7 @@ if ($text == 'dream') {
             "type" => "message",
             "label" => "天気予報チェック",
             "text" => "お天気は曇り、気温は15度です。",
-	    "uri" => "https://us.wio.seeed.io/v1/node/GroveTempHumD1/temperature?access_token=eecdb61def9790e172d1ad2a63aed257"
+	    "uri" => "https://us.wio.seeed.io/v1/node/GroveServoD0/angle/90?access_token=8a0b706c8b4fe6160278d7f72e764614"
           ],
           [
             "type" => "message",
@@ -99,15 +99,16 @@ if ($text == 'dream') {
         "text" => "エアコンつけますか？",
         "actions" => [
             [
-              "type" => "message",
+              "type" => "uri",
               "label" => "つける！",
               "text" => "エアコンつける！",
-	      "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
+	      "uri" => "https://us.wio.seeed.io/v1/node/GroveServoD0/angle/90?access_token=8a0b706c8b4fe6160278d7f72e764614"
             ],
             [
-              "type" => "message",
+              "type" => "uri",
               "label" => "つけない！",
-              "text" => "エアコンつけない"
+              "text" => "エアコンつけない",	  
+	      "uri" => "https://us.wio.seeed.io/v1/node/GroveServoD1/angle/90?access_token=8a0b706c8b4fe6160278d7f72e764614"
             ]
         ]
     ]
@@ -186,11 +187,11 @@ if ($text == 'dream') {
       ]
     ]
   ];
-} else if ($text == '知らんぷり。。') {
+} else if (preg_match('/(知らんぷり|スタンプ)/i', $text)) {
   $response_format_text = [
 	"type" => "sticker",
-	"packageId" => 85883,
-	"stickerId" => 10,
+	"packageId" => "85883",
+	"stickerId" => "10",
   ];
 } else if ($text == 'ワンちゃんチェック') {
   $response_format_text = [
