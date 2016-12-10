@@ -89,7 +89,7 @@ if ($text == 'dream') {
       ]
     ]
   ];
-} else if (preg_match('/(温度|クオリティ)/i', $text)) {
+} else if (preg_match('/(温度|クオリティ|エアコン)/i', $text)) {
   $response_format_text = [
     "type" => "template",
     "altText" => "エアコンつけますか？（はい／いいえ）",
