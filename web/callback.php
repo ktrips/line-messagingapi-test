@@ -75,7 +75,8 @@ if ($text == 'dream') {
 	]
     ]
   ];
-} else if (substr($text,0,12) == '[IFTTT] 本日の天気') {
+//} else if (substr($text,0,12) == '[IFTTT] 本日の天気') {
+} else if (!preg_match('/(IFTTT|天気)/i', $text)) {
   $response_format_text = [
     "type" => "template",
     "altText" => "天気の確認",
