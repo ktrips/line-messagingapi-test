@@ -52,29 +52,6 @@ if ($text == 'dream') {
       ]
     ]
   ];
-} else if ($text == 'no' or $text == 'いいえ' or $text == 'NObo') {
-  $response_format_text = [
-    "type" => "template",
-    "altText" => "またお声がけください",
-    "template" => [
-	"thumbnailImageUrl" => "$res_img",
-        "type" => "confirm",
-        "text" => "またお声がけください！",
-	"actions" => [
-            [
-              "type" => "message",
-              "label" => "続ける",
-	      "text" => "コボット",
-	      "uri" => "https://us.wio.seeed.io/v1/node/GroveTempHumD1/temperature?access_token=eecdb61def9790e172d1ad2a63aed257"
-            ],
-            [
-              "type" => "message",
-              "label" => "終了する",
-              "text" => "今日もいい一日を！"
-            ]
-	]
-    ]
-  ];
 } else if (preg_match('/(Kobo|コボ|Hello|はろ|Hi)/i', $text)) {
   $response_format_text = [
     "type" => "template",
@@ -210,13 +187,11 @@ if ($text == 'dream') {
     ]
   ];
 } else if ($text == '知らんぷり。。') {
-	function makeStickerPostData($packageId, $stickerId) {
-		return [
-			"type" => "sticker",
-			"packageId" => $packageId,
-			"stickerId" => $stickerId,
-			];
-	}
+  $response_format_text = [
+	"type" => "sticker",
+	"packageId" => 85883,
+	"stickerId" => 10,
+  ];
 } else if ($text == 'ワンちゃんチェック') {
   $response_format_text = [
     "type" => "template",
@@ -371,7 +346,7 @@ if ($text == 'dream') {
       ]
     ]
   ];
-} else if ($text == 'お金' or $text == '夢' or $text == '資産' or $text == '運用') {
+} else if (preg_match('/(お金|夢|資産|運用)/i', $text)) {
   $response_format_text = [
     "type" => "template",
     "altText" => "こんにちは あなた様の夢をお聞かせ下さい。（はい／いいえ）",
@@ -393,7 +368,31 @@ if ($text == 'dream') {
         ]
     ]
   ];
+} else if (preg_match('/(いいえ|No|さよなら)/i', $text)) {
+  $response_format_text = [
+    "type" => "template",
+    "altText" => "またお声がけください",
+    "template" => [
+	"thumbnailImageUrl" => "$res_img",
+        "type" => "confirm",
+        "text" => "またお声がけください！",
+	"actions" => [
+            [
+              "type" => "message",
+              "label" => "続ける",
+	      "text" => "コボット",
+	      "uri" => "https://us.wio.seeed.io/v1/node/GroveTempHumD1/temperature?access_token=eecdb61def9790e172d1ad2a63aed257"
+            ],
+            [
+              "type" => "message",
+              "label" => "終了する",
+              "text" => "今日もいい一日を！"
+            ]
+	]
+    ]
+  ];
 }
+
 
 $post_data = [
 	"replyToken" => $replyToken,
