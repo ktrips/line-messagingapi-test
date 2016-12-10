@@ -102,7 +102,8 @@ if ($text == 'dream') {
               "type" => "uri",
               "label" => "つける！",
               "text" => "エアコンつける！",
-	      "uri" => "https://us.wio.seeed.io/v1/node/GroveServoD0/angle/90?access_token=8a0b706c8b4fe6160278d7f72e764614"
+	      "uri" => "https://maker.ifttt.com/trigger/ktribot/iwth/key/dSWLYz6_m8AY6x-nMrdkJ1"
+	      //"uri" => "https://us.wio.seeed.io/v1/node/GroveServoD0/angle/90?access_token=8a0b706c8b4fe6160278d7f72e764614"
             ],
             [
               "type" => "uri",
