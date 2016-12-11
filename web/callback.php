@@ -106,15 +106,15 @@ if ($text == 'dream') {
 	      //"uri" => "https://us.wio.seeed.io/v1/node/GroveServoD0/angle/90?access_token=8a0b706c8b4fe6160278d7f72e764614"
             ],
             [
-              "type" => "uri",
+              "type" => "message",
               "label" => "つけない！",
-              "text" => "エアコンつけない",	  
-	      "uri" => "https://us.wio.seeed.io/v1/node/GroveServoD1/angle/90?access_token=8a0b706c8b4fe6160278d7f72e764614"
+              "text" => "つけない",
+	      "uri" => "https://maker.ifttt.com/trigger/ktribot/with/key/dSWLYz6_m8AY6x-nMrdkJ1"
             ]
         ]
     ]
   ];
-} else if (preg_match('/(お部屋|room|IFTTT)/i', $text)) {
+} else if (preg_match('/(部屋|room|IFTTT)/i', $text)) {
   $response_format_text = [
     "type" => "template",
     "altText" => "お部屋の状況",
@@ -165,10 +165,10 @@ if ($text == 'dream') {
             "type" => "uri",
             "label" => "話しかけてみる",
             "text" => "話しかけてみる",
-	    "uri" => "https://us.wio.seeed.io/v1/node/GroveTempHumD1/temperature?access_token=eecdb61def9790e172d1ad2a63aed257"
+	    "uri" => "https://maker.ifttt.com/trigger/ktribot/with/key/dSWLYz6_m8AY6x-nMrdkJ1"
           ],
           [
-            "type" => "message",
+            "type" => "uri",
             "label" => "威嚇音を出す！",
             "text" => "ぶーーーん！",
 	    "uri" => "https://maker.ifttt.com/trigger/ktribot/with/key/dSWLYz6_m8AY6x-nMrdkJ1"
@@ -177,22 +177,26 @@ if ($text == 'dream') {
             "type" => "uri",
             "label" => "友達になる",
             "text" => "友達になる",
-	    "uri" => "https://us.wio.seeed.io/v1/node/GrovePIRMotionD0/approach?access_token=eecdb61def9790e172d1ad2a63aed257"
+	    "uri" => "https://maker.ifttt.com/trigger/ktribot/with/key/dSWLYz6_m8AY6x-nMrdkJ1"
   	  ],
           [
             "type" => "message",
             "label" => "知らんぷり。。",
-            "text" => "知らんぷり。。",
-	    "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
+            "text" => "知らんぷり"
           ]
       ]
     ]
   ];
 } else if (preg_match('/(知らんぷり|スタンプ)/i', $text)) {
   $response_format_text = [
+    "type" => "template",
+    "altText" => "スタンプ",
+    "template" => [
 	"type" => "sticker",
+	"title" => "今日のスタンプ",
 	"packageId" => "85883",
-	"stickerId" => "10",
+	"stickerId" => "10"
+    ]
   ];
 } else if ($text == 'ワンちゃんチェック') {
   $response_format_text = [
@@ -370,7 +374,7 @@ if ($text == 'dream') {
         ]
     ]
   ];
-} else if (preg_match('/(いいえ|No|さよなら)/i', $text)) {
+} else if (preg_match('/(いいえ|No|さよなら|なし|つけない)/i', $text)) {
   $response_format_text = [
     "type" => "template",
     "altText" => "またお声がけください",
