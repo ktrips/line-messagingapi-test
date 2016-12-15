@@ -234,27 +234,169 @@ if (preg_match('/(dream)/i', $text)) {
           [
             "type" => "message",
             "label" => "20代？",
-            "text" => "20"
+            "text" => "20a"
           ],
           [
             "type" => "message",
             "label" => "30代？",
-            "text" => "30"
+            "text" => "30a"
           ],
           [
             "type" => "message",
             "label" => "40代？",
-            "text" => "40"
+            "text" => "40a"
           ],
           [
             "type" => "message",
             "label" => "50代以上？",
-            "text" => "50"
+            "text" => "50a"
           ]
       ]
     ]
   ];
-} else if ($text == '20') {
+} else if (preg_match('/(20a|30a|40a|50a)/i', $text)) {
+  $response_format_text = [
+    "type" => "template",
+    "altText" => "いくつの時に持ち家が欲しいですか？",
+    "template" => [
+      "type" => "buttons",
+	"thumbnailImageUrl" => "$res_img",
+      "title" => "いくつの時に持ち家が欲しいですか？",
+      "text" => "家を持つ予定の年代",
+      "actions" => [
+          [
+            "type" => "message",
+            "label" => "20代？",
+            "text" => "20h"
+          ],
+          [
+            "type" => "message",
+            "label" => "30代？",
+            "text" => "30h"
+          ],
+          [
+            "type" => "message",
+            "label" => "40代？",
+            "text" => "40h"
+          ],
+          [
+            "type" => "message",
+            "label" => "50代以上？",
+            "text" => "50h"
+          ]
+      ]
+    ]
+  ];
+} else if (preg_match('/(20h|30h|40h|50h)/i', $text)) {
+  $response_format_text = [
+    "type" => "template",
+    "altText" => "貯金額は？",
+    "template" => [
+      "type" => "buttons",
+	"thumbnailImageUrl" => "$res_img",
+      "title" => "現在の預貯金額はどれくらいですか？",
+      "text" => "現在の預貯金額",
+      "actions" => [
+          [
+            "type" => "message",
+            "label" => "なし。。。",
+            "text" => "0s"
+          ],
+          [
+            "type" => "message",
+            "label" => "100万円くらい",
+            "text" => "100s"
+          ],
+          [
+            "type" => "message",
+            "label" => "500万円くらい",
+            "text" => "500s"
+          ],
+          [
+            "type" => "message",
+            "label" => "1000万以上？",
+            "text" => "1000h"
+          ]
+      ]
+    ]
+  ];
+} else if (preg_match('/(100s|500s|1000s)/i', $text)) {
+  $response_format_text = [
+    "type" => "template",
+    "altText" => "そんなあなたにはこちら！",
+    "template" => [
+      "type" => "carousel",
+      "columns" => [
+          [
+            "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-1.jpg",
+            "title" => "海外株ファンド",
+            "text" => "アジアを中心としたエマージング海外ファンド",
+            "actions" => [
+              [
+                  "type" => "postback",
+                  "label" => "このファンドを買う！",
+                  "data" => "action=rsv&itemid=111"
+              ],
+              [
+                  "type" => "postback",
+                  "label" => "電話で相談する",
+                  "data" => "action=pcall&itemid=111"
+              ],
+              [
+                  "type" => "uri",
+                  "label" => "詳しく見る（ブラウザ起動）",
+                  "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
+              ]
+            ]
+          ],
+          [
+            "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-2.jpg",
+            "title" => "リート・ファンド",
+            "text" => "国内不動産に投資するリート",
+            "actions" => [
+              [
+                  "type" => "postback",
+                  "label" => "このファンドを買う！",
+                  "data" => "action=rsv&itemid=111"
+              ],
+              [
+                  "type" => "postback",
+                  "label" => "電話で相談する",
+                  "data" => "action=pcall&itemid=111"
+              ],
+              [
+                  "type" => "uri",
+                  "label" => "詳しく見る（ブラウザ起動）",
+                  "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
+              ]
+            ]
+          ],
+          [
+            "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-3.jpg",
+            "title" => "ETFファンド",
+            "text" => "上場投信ETF",
+            "actions" => [
+              [
+                  "type" => "postback",
+                  "label" => "このファンドを買う！",
+                  "data" => "action=rsv&itemid=111"
+              ],
+              [
+                  "type" => "postback",
+                  "label" => "電話で相談する",
+                  "data" => "action=pcall&itemid=111"
+              ],
+              [
+                  "type" => "uri",
+                  "label" => "詳しく見る（ブラウザ起動）",
+                  "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
+              ]
+            ]
+          ]
+      ]
+    ]
+  ];
+} else if ($text == '0s') {
   $response_format_text = [
     "type" => "template",
     "altText" => "若いっていいですね！",
