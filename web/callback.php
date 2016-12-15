@@ -18,14 +18,14 @@ $res_img = "https://ktribot.herokuapp.com/IMG_" . rand(1426,1468) . ".PNG";
 $res_img_url = "<img src=" . $res_img . ">";
 
 //返信データ作成
-if ($text == 'dream') {
+if (preg_match('/(dream)/i', $text)) {
   $response_format_text = [
     "type" => "template",
     "altText" => "あなた様の夢を教えて下さい",
     "template" => [
       "type" => "buttons",
-      //"thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
-	"thumbnailImageUrl" => "$res_img",
+      "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
+	//"thumbnailImageUrl" => "$res_img",
       "title" => "あなた様の夢を教えて下さい",
       "text" => "いつかこんな一戸建ての家を建てたい",
       "actions" => [
@@ -352,7 +352,7 @@ if ($text == 'dream') {
       ]
     ]
   ];
-} else if (preg_match('/(お金|夢|資産|運用)/i', $text)) {
+} else if (preg_match('/(金|夢|資産|運用|家|money|asset|house})/i', $text)) {
   $response_format_text = [
     "type" => "template",
     "altText" => "こんにちは あなた様の夢をお聞かせ下さい。（はい／いいえ）",
