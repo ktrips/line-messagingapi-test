@@ -14,15 +14,15 @@ $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 //$message_id   = $content->id;
 //$content_type = $content->contentType;
 
-$proxy         = getenv('http://fixie:NrTibOqJgMQliRi@velodrome.usefixie.com:80');
+//$proxy         = getenv('http://fixie:NrTibOqJgMQliRi@velodrome.usefixie.com:80');
 $docomoApiKey  = getenv('5752424f45756b376e484969564c7562354b3852784c6b45526a4a4c646b766f4251312e4b555a49475a37');
-$redisUrl      = getenv('https://data.heroku.com/datastore/cbc2849b-2a42-44e4-91d9-c6b08b889753');
+//$redisUrl      = getenv('https://data.heroku.com/datastore/cbc2849b-2a42-44e4-91d9-c6b08b889753');
 
 // $contextの設定
-$redis   = new Predis\Client($redisUrl);
+//$redis   = new Predis\Client($redisUrl);
 //$context = $redis->get($from);
 
-$dialog = new Dialogue($docomoApiKey);
+//$dialog = new Dialogue($docomoApiKey);
 
 //Docomo  送信パラメータの準備
 //$dialog->parameter->reset();
@@ -31,7 +31,7 @@ $dialog = new Dialogue($docomoApiKey);
 //$dialog->parameter->context = $context;
 //$dialog->parameter->mode = $mode;
 
-$ret = $dialog->request();
+//$ret = $dialog->request();
 
 //メッセージ以外のときは何も返さず終了
 if($type != "text"){
