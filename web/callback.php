@@ -19,7 +19,7 @@ $docomoApiKey  = getenv('5752424f45756b376e484969564c7562354b3852784c6b45526a4a4
 $redisUrl      = getenv('https://data.heroku.com/datastore/cbc2849b-2a42-44e4-91d9-c6b08b889753');
 
 // $contextの設定
-//$redis   = new Predis\Client($redisUrl);
+$redis   = new Predis\Client($redisUrl);
 //$context = $redis->get($from);
 
 //$dialog = new Dialogue($docomoApiKey);
