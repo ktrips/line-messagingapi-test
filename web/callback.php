@@ -19,7 +19,7 @@ $docomoApiKey  = getenv('DOCOMO_API_KEY');
 $redisUrl      = getenv('REDIS_URL');
 
 // $contextの設定
-$redis   = new Predis\Client($redisUrl);
+//$redis   = new Predis\Client($redisUrl);
 //$context = $redis->get($from);
 
 //$dialog = new Dialogue($docomoApiKey);
