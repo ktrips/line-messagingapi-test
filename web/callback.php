@@ -34,7 +34,7 @@ $redisUrl      = getenv('REDIS_URL');
 //$ret = $dialog->request();
 
 //メッセージ以外のときは何も返さず終了
-if($type != "text" or $type != "beacon"){
+if($type != "text") {// or $type != "beacon"){
 	exit;
 }
 //Res image
