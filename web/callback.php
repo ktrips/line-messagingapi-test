@@ -34,7 +34,7 @@ $redisUrl      = getenv('REDIS_URL');
 //$ret = $dialog->request();
 
 //メッセージ以外のときは何も返さず終了
-if($type != "text") {// or $type != "beacon"){
+if($type != "text") { // or $type != "beacon"){
 	exit;
 }
 //Res image
@@ -564,9 +564,9 @@ if (preg_match('/(dream)/i', $text)) {
 	]
     ]
   ];
-} else if ('beacon' == $type) {
+} else if ($type == 'beacon') {
   $response_format_text = 'BEACONが近くに来たよ！';
-} else {
+} else if ($type == 'message') {
   $response_format_text = chat($text);
 }
 
