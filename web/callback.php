@@ -15,7 +15,7 @@ $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 //$content_type = $content->contentType;
 
 $proxy         = getenv('FIXIE_URL');
-$docomoApiKey  = getenv('DOCOMO_API_KEY');
+//$docomoApiKey  = getenv('DOCOMO_API_KEY');
 $redisUrl      = getenv('REDIS_URL');
 
 // $contextの設定
@@ -564,8 +564,33 @@ if (preg_match('/(dream)/i', $text)) {
 	]
     ]
   ];
+} else if ('beacon' == $type) {
+  $response_format_text = 'BEACONが近くに来たよ！';
+} else if ('message' == $type) {
+  $response_format_text = chat($text));/
 }
 
+//ドコモの雑談APIから雑談データを取得
+function chat($text) {
+    // docomo chatAPI
+    $api_key = getenv('DOCOMO_API_KEY');
+    //$api_key = '【docomoのAPI Keyを使用する】';
+    $api_url = sprintf('https://api.apigw.smt.docomo.ne.jp/dialogue/v1/dialogue?APIKEY=%s', $api_key);
+    $req_body = array('utt' => $text);
+    $headers = array(
+        'Content-Type: application/json; charset=UTF-8',
+    );
+    $options = array(
+        'http'=>array(
+            'method'  => 'POST',
+            'header'  => implode("\r\n", $headers),
+            'content' => json_encode($req_body),
+            )
+        );
+    $stream = stream_context_create($options);
+    $res = json_decode(file_get_contents($api_url, false, $stream));
+    return $res->utt;
+}
 
 $post_data = [
 	"replyToken" => $replyToken,
