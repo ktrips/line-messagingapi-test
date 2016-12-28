@@ -567,7 +567,7 @@ if (preg_match('/(dream)/i', $text)) {
 } else if ('beacon' == $type) {
   $response_format_text = 'BEACONが近くに来たよ！';
 } else if ('message' == $type) {
-  $response_format_text = chat($text));/
+  $response_format_text = chat($text);
 }
 
 //ドコモの雑談APIから雑談データを取得
