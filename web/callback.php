@@ -9,6 +9,8 @@ $text = $jsonObj->{"events"}[0]->{"message"}->{"text"};
 //ReplyToken取得
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
+$from  = $jsonObj->{"events"}[0]->{"from"};
+
 //$content      = $json_object->result{0}->content;
 //$from         = $content->from;
 //$message_id   = $content->id;
@@ -564,9 +566,9 @@ if (preg_match('/(dream)/i', $text)) {
 	]
     ]
   ];
-} else if ($type == 'beacon') {
+} else if ($text == 'beacon') {
   $response_format_text = 'BEACONが近くに来たよ！';
-} else if ($type == 'message') {
+} else {
   $response_format_text = chat($text);
 }
 
