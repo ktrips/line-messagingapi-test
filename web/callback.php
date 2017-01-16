@@ -52,7 +52,7 @@ $res_img = "https://ktribot.herokuapp.com/IMG_" . rand(1426,1468) . ".PNG";
 $res_img_url = "<img src=" . $res_img . ">";
 
 //返信データ作成
-if (preg_match('/(dream)/i', $text)) {
+if (preg_match('/(夢|家|金|資産|貯|)/i', $text)) {
   $response_format_text = [
     "type" => "template",
     "altText" => "あなた様の夢を教えて下さい",
@@ -81,6 +81,40 @@ if (preg_match('/(dream)/i', $text)) {
           [
             "type" => "message",
             "label" => "もっと大それた夢？",
+            "text" => "次も見てみる"
+          ]
+      ]
+    ]
+  ];
+} else if (preg_match('/(dream|house|money|saving|retire)/i', $text)) {
+  $response_format_text = [
+    "type" => "template",
+    "altText" => "Whats your dream?",
+    "template" => [
+      "type" => "buttons",
+      "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
+	//"thumbnailImageUrl" => "$res_img",
+      "title" => "Is this your dream house?",
+      "text" => "How to save money for builing your house.",
+      "actions" => [
+          [
+            "type" => "message",
+            "label" => "Check Financial Plan",
+            "text" => "資金プラン"
+          ],
+          [
+            "type" => "postback",
+            "label" => "Call to Agent",
+            "data" => "action=pcall&itemid=123"
+          ],
+          [
+            "type" => "uri",
+            "label" => "Check Detail",
+            "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
+          ],
+          [
+            "type" => "message",
+            "label" => "Anything else?",
             "text" => "次も見てみる"
           ]
       ]
