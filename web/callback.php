@@ -52,7 +52,7 @@ $res_img = "https://ktribot.herokuapp.com/IMG_" . rand(1426,1468) . ".PNG";
 $res_img_url = "<img src=" . $res_img . ">";
 
 //返信データ作成
-if (preg_match('/(夢|家|金|資産|貯|)/i', $text)) {
+if (preg_match('/(夢|家|金|資産|貯)/i', $text)) {
   $response_format_text = [
     "type" => "template",
     "altText" => "あなた様の夢を教えて下さい",
@@ -66,7 +66,7 @@ if (preg_match('/(夢|家|金|資産|貯|)/i', $text)) {
           [
             "type" => "message",
             "label" => "資金プランを見てみる",
-            "text" => "資金プラン"
+            "text" => "Plan-j"
           ],
           [
             "type" => "postback",
@@ -81,7 +81,7 @@ if (preg_match('/(夢|家|金|資産|貯|)/i', $text)) {
           [
             "type" => "message",
             "label" => "もっと大それた夢？",
-            "text" => "次も見てみる"
+            "text" => "Next-j"
           ]
       ]
     ]
@@ -100,7 +100,7 @@ if (preg_match('/(夢|家|金|資産|貯|)/i', $text)) {
           [
             "type" => "message",
             "label" => "Check Financial Plan",
-            "text" => "資金プラン"
+            "text" => "Plan-e"
           ],
           [
             "type" => "postback",
@@ -115,7 +115,7 @@ if (preg_match('/(夢|家|金|資産|貯|)/i', $text)) {
           [
             "type" => "message",
             "label" => "Anything else?",
-            "text" => "次も見てみる"
+            "text" => "Next-e"
           ]
       ]
     ]
@@ -289,7 +289,7 @@ if (preg_match('/(夢|家|金|資産|貯|)/i', $text)) {
         ]
     ]
   ];
-} else if ($text == '資金プラン') {
+} else if ($text == 'Plan-j') {
   $response_format_text = [
     "type" => "template",
     "altText" => "今、おいくつですか？",
@@ -322,6 +322,39 @@ if (preg_match('/(夢|家|金|資産|貯|)/i', $text)) {
       ]
     ]
   ];
+} else if ($text == 'Plan-e') {
+  $response_format_text = [
+    "type" => "template",
+    "altText" => "How old are you？",
+    "template" => [
+      "type" => "buttons",
+	"thumbnailImageUrl" => "$res_img",
+      "title" => "Tell me your age",
+      "text" => "How old are you?",
+      "actions" => [
+          [
+            "type" => "message",
+            "label" => "20 - 29 or less",
+            "text" => "20a"
+          ],
+          [
+            "type" => "message",
+            "label" => "30 - 39",
+            "text" => "30a"
+          ],
+          [
+            "type" => "message",
+            "label" => "40 - 49",
+            "text" => "40a"
+          ],
+          [
+            "type" => "message",
+            "label" => "50 or more",
+            "text" => "50a"
+          ]
+      ]
+    ]
+  ];
 } else if (preg_match('/(20a|30a|40a|50a)/i', $text)) {
   $response_format_text = [
     "type" => "template",
@@ -332,11 +365,6 @@ if (preg_match('/(夢|家|金|資産|貯|)/i', $text)) {
       "title" => "いくつの時に持ち家が欲しいですか？",
       "text" => "家を持つ予定の年代",
       "actions" => [
-          [
-            "type" => "message",
-            "label" => "20代？",
-            "text" => "20h"
-          ],
           [
             "type" => "message",
             "label" => "30代？",
@@ -486,7 +514,7 @@ if (preg_match('/(夢|家|金|資産|貯|)/i', $text)) {
         ]
     ]
   ];
-} else if ($text == '次も見てみる') {
+} else if ($text == 'Next-j') {
   $response_format_text = [
     "type" => "template",
     "altText" => "こんな夢でしょうか？",
@@ -562,7 +590,83 @@ if (preg_match('/(夢|家|金|資産|貯|)/i', $text)) {
       ]
     ]
   ];
-} else if (preg_match('/(金|夢|資産|運用|家|money|asset|house})/i', $text)) {
+} else if ($text == 'Next-e') {
+  $response_format_text = [
+    "type" => "template",
+    "altText" => "What is your dream?",
+    "template" => [
+      "type" => "carousel",
+      "columns" => [
+          [
+            "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-1.jpg",
+            "title" => "Small Dream",
+            "text" => "年に一回は海外旅行にいく余裕を持つ",
+            "actions" => [
+              [
+                  "type" => "postback",
+                  "label" => "資金プランを見てみる",
+                  "data" => "action=rsv&itemid=111"
+              ],
+              [
+                  "type" => "postback",
+                  "label" => "電話する",
+                  "data" => "action=pcall&itemid=111"
+              ],
+              [
+                  "type" => "uri",
+                  "label" => "詳しく見る（ブラウザ起動）",
+                  "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
+              ]
+            ]
+          ],
+          [
+            "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-2.jpg",
+            "title" => "Reasonable Dream",
+            "text" => "お子様に素晴しい教育環境を用意する",
+            "actions" => [
+              [
+                  "type" => "postback",
+                  "label" => "資金プランを見てみる",
+                  "data" => "action=rsv&itemid=222"
+              ],
+              [
+                  "type" => "postback",
+                  "label" => "電話する",
+                  "data" => "action=pcall&itemid=222"
+              ],
+              [
+                  "type" => "uri",
+                  "label" => "詳しく見る（ブラウザ起動）",
+                  "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
+              ]
+            ]
+          ],
+          [
+            "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-3.jpg",
+            "title" => "はたまたこんな夢",
+            "text" => "50歳でアーリーリタイアして田舎暮らし",
+            "actions" => [
+              [
+                  "type" => "postback",
+                  "label" => "資金プランを見てみる",
+                  "data" => "action=rsv&itemid=333"
+              ],
+              [
+                  "type" => "postback",
+                  "label" => "電話する",
+                  "data" => "action=pcall&itemid=333"
+              ],
+              [
+                  "type" => "uri",
+                  "label" => "詳しく見る（ブラウザ起動）",
+                  "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
+              ]
+            ]
+          ]
+      ]
+    ]
+  ];
+} else if (preg_match('/(何})/i', $text)) {
   $response_format_text = [
     "type" => "template",
     "altText" => "こんにちは あなた様の夢をお聞かせ下さい。（はい／いいえ）",
@@ -574,7 +678,7 @@ if (preg_match('/(夢|家|金|資産|貯|)/i', $text)) {
             [
               "type" => "message",
               "label" => "はい",
-              "text" => "dream"
+              "text" => "夢"
             ],
             [
               "type" => "message",
