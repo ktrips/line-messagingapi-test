@@ -600,21 +600,21 @@ if (preg_match('/(夢|家|金|資産|貯)/i', $text)) {
           [
             "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-1.jpg",
             "title" => "Small Dream",
-            "text" => "年に一回は海外旅行にいく余裕を持つ",
+            "text" => "Go abroad trip once a year",
             "actions" => [
               [
                   "type" => "postback",
-                  "label" => "資金プランを見てみる",
-                  "data" => "action=rsv&itemid=111"
+                  "label" => "Travel plan",
+                  "data" => "Plan-e"
               ],
               [
                   "type" => "postback",
-                  "label" => "電話する",
+                  "label" => "Call to Travel agent",
                   "data" => "action=pcall&itemid=111"
               ],
               [
                   "type" => "uri",
-                  "label" => "詳しく見る（ブラウザ起動）",
+                  "label" => "Check detail",
                   "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
               ]
             ]
@@ -622,43 +622,43 @@ if (preg_match('/(夢|家|金|資産|貯)/i', $text)) {
           [
             "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-2.jpg",
             "title" => "Reasonable Dream",
-            "text" => "お子様に素晴しい教育環境を用意する",
+            "text" => "Prepare education for your kids",
             "actions" => [
               [
                   "type" => "postback",
-                  "label" => "資金プランを見てみる",
-                  "data" => "action=rsv&itemid=222"
+                  "label" => "Financial plan",
+                  "data" => "Plan-e"
               ],
               [
                   "type" => "postback",
-                  "label" => "電話する",
-                  "data" => "action=pcall&itemid=222"
+                  "label" => "Call to Edu agent",
+                  "data" => "action=pcall&itemid=111"
               ],
               [
                   "type" => "uri",
-                  "label" => "詳しく見る（ブラウザ起動）",
+                  "label" => "Check detail",
                   "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
               ]
             ]
           ],
           [
             "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-3.jpg",
-            "title" => "はたまたこんな夢",
-            "text" => "50歳でアーリーリタイアして田舎暮らし",
+            "title" => "Or else?",
+            "text" => "Stay rural after early retirement",
             "actions" => [
               [
                   "type" => "postback",
-                  "label" => "資金プランを見てみる",
-                  "data" => "action=rsv&itemid=333"
+                  "label" => "Financial plan",
+                  "data" => "Plan-e"
               ],
               [
                   "type" => "postback",
-                  "label" => "電話する",
-                  "data" => "action=pcall&itemid=333"
+                  "label" => "Call to FA",
+                  "data" => "action=pcall&itemid=111"
               ],
               [
                   "type" => "uri",
-                  "label" => "詳しく見る（ブラウザ起動）",
+                  "label" => "Check detail",
                   "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
               ]
             ]
@@ -666,7 +666,7 @@ if (preg_match('/(夢|家|金|資産|貯)/i', $text)) {
       ]
     ]
   ];
-} else if (preg_match('/(何})/i', $text)) {
+} else if (preg_match('/(何|What)/i', $text)) {
   $response_format_text = [
     "type" => "template",
     "altText" => "こんにちは あなた様の夢をお聞かせ下さい。（はい／いいえ）",
